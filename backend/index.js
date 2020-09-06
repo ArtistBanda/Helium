@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
   return res.status(200).send("working!!!");
 });
 //vehile registation....
-app.post('/api/vechile/registraion', (req,res) =>{
+app.post('/create/vechile/registraion', (req,res) =>{
       const bucket = admin.storage().bucket("BUCKET_URL");
       try {
         if (!req.files[0]) {
@@ -39,22 +39,14 @@ app.post('/api/vechile/registraion', (req,res) =>{
             .status(200)
             .send({ fileName: req.files[0].originalname, fileLocation: publicUrl });
           const data = {
-            name: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
+            regNum: req.body.regNum,
+            model: req.body.model,
+            timestamp: req.body.time,
             url: publicUrl,
           };
           admin
-            .database()
-            .ref("products")
-            .child(req.body.id)
-            .set(data)
-            .then((snapshot) => {
-              res.status(200).send("done");
-            });
-          admin
             .firestore()
-            .collection("products")
+            .collection("registration")
             .doc("/" + req.body.id + "/")
             .create(data)
             .then((snap) => {
@@ -72,5 +64,41 @@ app.post('/api/vechile/registraion', (req,res) =>{
       }
 });
 
+//getting registration data....
+app.get("/get/firestore", (req, res) => {
+  admin
+    .firestore()
+    .collection("registration")
+    .get()
+    .then((querySnapshot) => {
+      const tempDoc = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      res.status(200).send(tempDoc);
+    })
+    .catch((e) => {
+      console.log(e);
+      res.status(500).send(e);
+    });
+});
+//adding path to vechile....
+app.post("/addpth/:regnum", (req, res) => {
+  var id = req.params.regnum;
+  var data = {
+    pth: req.body.path,
+  };
+  admin
+    .database()
+    .ref("path")
+    .child(id)
+    .push(data)
+    .then((snapshot) => {
+      res.status(200).send(id + "added with path" + req.body.path );
+    })
+    .catch((e) => {
+      console.log(e);
+      res.status(500).send(e);
+    });
+});
 
 
