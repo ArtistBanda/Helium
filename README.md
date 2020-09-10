@@ -15,4 +15,5 @@ and make***
 <code> 
 ./darknet detect cfg/cfg_filename.cfg weights_filename.weghts {dir_image}image.jpg
 </code>
-***(optional)in the above line use -i 1 for GPU to detect  or while make, set opencv=1,cudann=1,gpu =1 in Makefile ****
+<br>
+***(optional)in the above line use -i 1 for GPU to detect  or while make, set opencv=1,cudann=1,gpu =1 in Makefile***
