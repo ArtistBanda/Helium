@@ -22,4 +22,5 @@ and make***
 <code>
 ./darknet detector demo data/data_filename.data cfg/cfg_filename.cfg weights_filename.weghts
 </code>
+<br>
 ***(optional)in the above line use -i 1 for GPU to detect  or while make, set opencv=1,cudann=1,gpu =1 in Makefile***
