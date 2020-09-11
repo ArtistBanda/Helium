@@ -4,7 +4,6 @@ from keras.layers import Input, Add, Dense, Activation, ZeroPadding2D, BatchNorm
 from keras.models import Model, load_model
 from keras.preprocessing import image
 from keras.utils import layer_utils
-from keras.utils.data_utils import get_file
 import matplotlib as plt
 import keras.backend as K
 from keras.initializers import glorot_uniform
