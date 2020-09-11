@@ -13,7 +13,7 @@ and make***
 ***4)on your machine, while in darknet folder use cmd***
 <br>
 <code> 
-./darknet detect cfg/cfg_filename.cfg weights_filename.weghts {dir_image}image.jpg
+./darknet detector data/data_filename.data  cfg/cfg_filename.cfg weights_filename.weghts {dir_image}image.jpg
 </code>
 <br>***to detect a single image***
 <br>
