@@ -101,11 +101,12 @@ app.post("/addpth/:regnum", (req, res) => {
     });
 });
 //addspeed (Realtime)
-app.post("/api/speed/realtime", (req, res) => {
+app.post("/api/speed", (req, res) => {
   const data = {
-    speed: req.body.name,
+    speed: req.body.speed,
+    num: req.body.num,
   };
-  var speedQuery = admin.database().ref("speed").child("RJ14QC4805");
+  var speedQuery = admin.database().ref("speed");
   speedQuery.push(data).then((snapshot) => {
     res.status(200).send(speedQuery.key);
   });
@@ -113,27 +114,16 @@ app.post("/api/speed/realtime", (req, res) => {
 //getspeed (realtime)
 app.get("/api/speed/realtime", (req, res) => {
   var list = [];
-  var data = [];
-  var speedQuery = admin.database().ref("speed");
-  speedQuery.once("value").then(async (snapshot) => {
+  var speedQuery2 = admin.database().ref("speed");
+  speedQuery2.once("value").then(async (snapshot) => {
     await snapshot.forEach(function (childSnapshot) {
       var key = childSnapshot.key;
-      admin
-        .database()
-        .ref("speed")
-        .child(key)
-        .once("value")
-        .then(async (snapshot) => {
-          await snapshot.forEach(function (childSnapshot2) {
-            var key = childSnapshot.key;
-            data.push(key);
-          });
-          list.push({
-            id: key,
-            data: data,
-          });
-          res.status(200).send({ list: list });
-        });
+      console.log(key);
+      list.push({
+        speed: childSnapshot.val().speed,
+        car: childSnapshot.val().num,
+      });
     });
+    res.status(200).send(list);
   });
 });
