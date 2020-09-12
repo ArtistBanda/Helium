@@ -127,3 +127,10 @@ app.get("/api/speed/realtime", (req, res) => {
     res.status(200).send(list);
   });
 });
+//deleteSpeed(realtime)
+app.delete("/api/speed", (req, res) => {
+  var speedQuery = admin.database().ref("speed").child(key);
+  speedQuery.remove().then((snapshot) => {
+    res.status(200).send("fe");
+  });
+});
