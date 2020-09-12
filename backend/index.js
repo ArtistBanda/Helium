@@ -12,7 +12,7 @@ admin.initializeApp({
 const app = express();
 app.use(cors({ origin: true }));
 app.use(fileMiddleware);
-//connectoin check....
+//connection check....
 app.get("/", (req, res) => {
   return res.status(200).send("working!!!");
 });
@@ -100,5 +100,40 @@ app.post("/addpth/:regnum", (req, res) => {
       res.status(500).send(e);
     });
 });
-
-
+//addspeed (Realtime)
+app.post("/api/speed/realtime", (req, res) => {
+  const data = {
+    speed: req.body.name,
+  };
+  var speedQuery = admin.database().ref("speed").child("RJ14QC4805");
+  speedQuery.push(data).then((snapshot) => {
+    res.status(200).send(speedQuery.key);
+  });
+});
+//getspeed (realtime)
+app.get("/api/speed/realtime", (req, res) => {
+  var list = [];
+  var data = [];
+  var speedQuery = admin.database().ref("speed");
+  speedQuery.once("value").then(async (snapshot) => {
+    await snapshot.forEach(function (childSnapshot) {
+      var key = childSnapshot.key;
+      admin
+        .database()
+        .ref("speed")
+        .child(key)
+        .once("value")
+        .then(async (snapshot) => {
+          await snapshot.forEach(function (childSnapshot2) {
+            var key = childSnapshot.key;
+            data.push(key);
+          });
+          list.push({
+            id: key,
+            data: data,
+          });
+          res.status(200).send({ list: list });
+        });
+    });
+  });
+});
