@@ -104,28 +104,33 @@ app.post("/addpth/:regnum", (req, res) => {
 app.post("/api/speed", (req, res) => {
   const data = {
     speed: req.body.speed,
-    num: req.body.num,
   };
-  var speedQuery = admin.database().ref("speed");
+  var speedQuery = admin.database().ref("speed").child("Dw");
   speedQuery.push(data).then((snapshot) => {
     res.status(200).send(speedQuery.key);
   });
 });
 //getspeed (realtime)
 app.get("/api/speed/realtime", (req, res) => {
-  var list = [];
-  var speedQuery2 = admin.database().ref("speed");
-  speedQuery2.once("value").then(async (snapshot) => {
-    await snapshot.forEach(function (childSnapshot) {
-      var key = childSnapshot.key;
-      console.log(key);
-      list.push({
-        speed: childSnapshot.val().speed,
-        car: childSnapshot.val().num,
+  var main = [];
+  var speedQuery = admin.database().ref("speed");
+  speedQuery.on(
+    "value",
+    function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        var key = childSnapshot.key;
+        var data = [];
+        childSnapshot.forEach(function (childSnapshot2) {
+          data.push(childSnapshot2.val());
+        });
+        main.push({ id: key, data: data });
       });
-    });
-    res.status(200).send(list);
-  });
+      res.status(200).send(main);
+    },
+    function (error) {
+      console.error(error);
+    }
+  );
 });
 //deleteSpeed(realtime)
 app.delete("/api/speed", (req, res) => {
