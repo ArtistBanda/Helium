@@ -102,10 +102,17 @@ app.post("/addpth/:regnum", (req, res) => {
 });
 //addspeed (Realtime)
 app.post("/api/speed", (req, res) => {
+  var overspeed = false;
+  {
+    req.body.speed > 100 ? (overspeed = true) : (overspeed = false);
+  }
   const data = {
     speed: req.body.speed,
+    path: req.body.path,
+    overspeed: overspeed,
+    deviated : req.body.deviated
   };
-  var speedQuery = admin.database().ref("speed").child("Dw");
+  var speedQuery = admin.database().ref("speed").child("Car Number");
   speedQuery.push(data).then((snapshot) => {
     res.status(200).send(speedQuery.key);
   });
@@ -138,4 +145,26 @@ app.delete("/api/speed", (req, res) => {
   speedQuery.remove().then((snapshot) => {
     res.status(200).send("fe");
   });
+});
+//adding animal
+app.post("/api/animal", (req, res) => {
+  const data = {
+    animal: req.body.animal,
+    location: req.body.location,
+  };
+  var animalQuery = admin.database().ref("animalTagging");
+  animalQuery.push(data).then((snapshot) => {
+    res.status(200).send({ key: snapshot.key });
+  });
+});
+//getAnimalList
+app.get("/api/animal", (req, res) => {
+  var animalList = [];
+  var animalQuery = admin.database().ref("animalTagging");
+  animalQuery.on("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      animalList.push({ key: childSnapshot.key, data: childSnapshot.val() });
+    });
+  });
+  res.status(200).send(animalList);
 });
