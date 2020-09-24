@@ -1,5 +1,0 @@
-classes = 5
-train  = data/train.txt
-valid  = data/val.txt
-names = data/darknet_obj_names.names
-backup =yolov3/
