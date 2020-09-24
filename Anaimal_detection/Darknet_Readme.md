@@ -1,26 +1,11 @@
-# Darkent
-***clone Darknet
-<code>git clone https://github.com/AlexeyAB/darknet</code>
-cd Darknet
-and make***
-### usage darknet
-***1)to use, copy the .cfg file from here to Darknet folder -> cfg folder and paste***
-<br>
-***2)copy the .data file to Darknet folder->data folder -> and paste***
-<br>
-***3)copy the .weights file to darkent folder***
-<br>
-***4)on your machine, while in darknet folder use cmd***
-<br>
-<code> 
-./darknet detector data/data_filename.data  cfg/cfg_filename.cfg weights_filename.weghts {dir_image}image.jpg
-</code>
-<br>***to detect a single image***
-<br>
-***For real time detection opencv must be enable and use cmd***
-<br>
-<code>
-./darknet detector demo data/data_filename.data cfg/cfg_filename.cfg weights_filename.weghts
-</code>
-<br>
-***(optional)in the above line use -i 1 for GPU to detect  or while make, set opencv=1,cudann=1,gpu =1 in Makefile***
+# Animal Detection using Darknet53
+
+## Contains
+
+***This repo contaions a yolov3_train.cgf file in cfg folder, a yolo.data and obj_names file in data folder.***
+***This repo also contains a trained weights file yolov3.backup in weights folder, trained for 9 custom animal classes.***
+
+## Installation
+***1)clone the darkent github repo from <code>git clone https://github.com/AlexeyAB/darknet</code> and just copy past the folder in this repo to the cloned Darknet repo***<br>
+***2)While in the darkent folder run <code>./darknet detector data/yolo.data cfg/yolov3_train.cgf weights/yolov3_train.backup {dir_image}image.jpg</code> in bash/cmd for a single image detection***<br>
+***For real time detection make sure to enable opencv, GPU and Cuda while making darknet and run <code>./darknet detector demo data/yolo.data cfg/yolov3_train.cgf weights/yolov3_train.backup</code>***
