@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "helium-290915",
+  "private_key_id": "c8113683cf45ef7ca3de91f25522c60e6561ba85",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCwqX9rPCuA+MVy\n3/MGrBzZ9FDa/U5kckb+l+FFixxo2ky2bVuiC051OHgFXmvv5sERtAAa+DkTb8p8\nCsGrctGSvaTUT3fs/Lqx+XZ1c77UbR1xVnNmYv4/moJAxwxuX9lwrJqxKlsQaPhQ\nIXX0SPUlp6vERB1nSFdcz9asiWAmctpCL+Hvbip2JIlM6Ltlvu+twZUgwKc+CnED\nYCtnJrnhB+Ct5aqd/WQvKZAZRHGXO7T7xR7cyrc2a7RQirHio5gfukEBjN43sVo8\nfqRs7WxLf0vRQVA46tQYjnDRjBK/1/mLSDQRqEkjCTI9i7fb9S5cC8PJJIO6i/M5\nuWdbJnJtAgMBAAECggEAIo+iZSMCGsrwa+Maqx9ATLaCm/kK3VVLBNNHR8Dpl6y/\nbcASuW6vVHjt6BT7FlWlR1aY363YkrAf46kCDw3ZKLVPuhZq7pLZ3mggr+UrO+k1\n5Z6lWG488coDOfOG/8/iHOwznj3cT2dNzvVg21/rj8iP7sdpnjNVngtuItaEWDjz\nuXB4YPVo7k59h/NC+9B2FDtdQVw8NoN4mzLvoywJ0sOLH6bAlpz7oIxPuXIkwis0\nE8AbYNoVFF5MORtBIuR1LwG6R+ngS63RxHw7AfTDy9880DWWYmX59AfB5mYNx8vG\nEfIsvvdwWtU+p5EnQtfa168vF5vrcl/YHLJDT2ZJSQKBgQDtcnAcn0zwGzkh/GoW\n77/IltJcyua4hbWtXw51Q7DNe1rZQzORKPKwRRsCPh1z0/siGaz9WEfrOIbhRbV1\ngxBfFNy9RFTxxrfJz8hAvxfVG2D95VIkOq1ANSfXhJxp7j7JCt7uuYZup6LzOWoH\n0TpdZ1cjvxIK3/nlp5fmghmpZQKBgQC+dzPETlypV3Ef9D86oU5O9FzsVkfg5eRM\nbSeo2TIGt6mWQXi8ITwJPK0JGzauXkaQW7lBgBbMKZgABkk0FYvNue+5P1qxEuI+\ncxyjx2V923aWz8m43pnRSUW+qQ8kws/WH0wrm/Iqiy5jnn/I7j/tMXbTxIHlX2yU\nmxfvHxyYaQKBgQCe4yreHELRkIXklhEvk/KTeUj+ys8kvmRZxPfZxBf1CAw8wdkp\n02rCRRvTnlj6/uhXYzL8vCwz3Dl1WL4aCj/UQBONmsH0n3KwWpe3q6d49L8sZl1W\n3OS9yFQGxTgdMk1VHi8bM44fUZGai9rFrF4PzmzjAKJEIKgJ4uGkX35oeQKBgBvG\nXEkzODYFp1yGjLXrEfVXkzlvt5mnTKyMem0YB0CNhfCAaa/dlNiv/XfHfSjeXKHu\njkxr9mcdZaoTQJeU0MdWZwv3ni0WWOHMfY+woy9AUsHZWUxZQcsQSVhtZOTyd8Z8\n1+nAGwdzNneWhIHzpGTdgruM+3hMexQMrefT/KKJAoGAPnsxNgSMBg7mzynjZ1NX\nR//2ReCG6lhXmUqUpwdn9eYHnGfi4Q4HVzerXOrl6jSWWbagCdEfw/BE2HRy0Gqh\nl9URCmRD8wVMENAibazIp67ygfRo2cLpCB8cPOlWGGfP4hMEs2xVcpNix5q49HhP\nba99047djrzoF8fKgdAtlJs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "helium@helium-290915.iam.gserviceaccount.com",
+  "client_id": "100800754332177088695",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/helium%40helium-290915.iam.gserviceaccount.com"
+}
