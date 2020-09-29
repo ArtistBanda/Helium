@@ -1,0 +1,7 @@
+.widthSize {
+  width: 350px;
+}
+.tableScroll {
+  scroll-behavior: auto;
+  overflow-x: scroll;
+}
