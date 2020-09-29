@@ -13,6 +13,7 @@ initialize_app(
 )
 
 IMG_PATH = "ml_models/animal_tagging/Test_images"
+counter = 0
 
 for image in os.listdir(IMG_PATH):
     single_image_path = os.path.join(IMG_PATH, image)
@@ -20,7 +21,7 @@ for image in os.listdir(IMG_PATH):
     curr_time = str(datetime.now())
     cropped, image, animal_name = yolo_opencv.main(single_image_path)
 
-    temp_image_path = 'temp.jpg'
+    temp_image_path = 'temp' + str(counter) + '.jpg'
     cv2.imwrite(temp_image_path, image)
 
     bucket = storage.bucket()
@@ -40,3 +41,4 @@ for image in os.listdir(IMG_PATH):
 
     ref = db.reference('animalTagging')
     ref.push(data)
+    counter += 1
