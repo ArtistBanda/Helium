@@ -37,7 +37,7 @@ function Home() {
                   <img src={value.url} class="card-img-top cardImg" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">{value.id}</h5>
-                    <p class="card-text">Model : {value.model}</p>
+                    {/* <p class="card-text">Model : {value.model}</p> */}
                     <p class="card-text">
                       Time of registration : {value.timestamp}
                     </p>

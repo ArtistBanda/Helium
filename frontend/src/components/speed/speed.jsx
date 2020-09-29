@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import fire from "../../fire";
 import "./speed.css";
 import BootstrapTable from "react-bootstrap-table-next";
+import MyVerticallyCenteredModal from "../modal/modal";
 function Speed() {
   const [speed, setspeed] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
+  const [img, setimg] = useState(null);
   useEffect(() => {
     // const main = [];
     const unsubscribe = fire
@@ -57,13 +60,17 @@ function Speed() {
     {
       dataField: "id",
       text: "Reg Number",
+      headerStyle: {
+        width: "1000px",
+        whiteSpace: "normal",
+      },
     },
     {
       dataField: "data",
       text: "Car Speed",
       formatter: rankFormatter,
       headerStyle: {
-        width: "1000px",
+        width: "800px",
         whiteSpace: "normal",
       },
     },
@@ -72,7 +79,7 @@ function Speed() {
       text: "Car Problem",
       formatter: rankFormatterProblem,
       headerStyle: {
-        width: "1000px",
+        width: "800px",
         whiteSpace: "normal",
       },
     },
@@ -81,7 +88,7 @@ function Speed() {
       text: "Car Snapshot",
       formatter: rankFormatterLink,
       headerStyle: {
-        width: "1000px",
+        width: "100px",
         whiteSpace: "normal",
       },
     },
@@ -127,14 +134,19 @@ function Speed() {
       );
     });
   }
+  const madalCOntent = (value) => {
+    setModalShow(true);
+    setimg(value);
+  };
   function rankFormatterLink(cell, row, rowIndex, formatExtraData) {
-    // console.log("row", row.data[0].speed);
     return row.data.map((value, i) => {
       return (
         <div className="text-primary ">
-          <a href={value.link}>
-            {i + 1} : {value.link}
-          </a>
+          <div onClick={() => madalCOntent(value.link)}>
+            <h3>
+              <i class="fas fa-map-marked-alt"></i>
+            </h3>
+          </div>
           <hr></hr>
         </div>
       );
@@ -142,6 +154,11 @@ function Speed() {
   }
   return (
     <div>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        imgTag={img}
+      />
       <div className="p-4 tableScroll">
         <BootstrapTable
           striped

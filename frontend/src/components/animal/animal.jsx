@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import fire from "../../fire";
 import "./animal.css";
 import BootstrapTable from "react-bootstrap-table-next";
+import MyVerticallyCenteredModal from "../modal/modal";
 function Animal() {
   const [animalList, setanimalList] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
+  const [img, setimg] = useState(null);
   useEffect(() => {
     const unsubscribe = fire
       .database()
@@ -41,20 +44,20 @@ function Animal() {
     };
   }, []);
   const columns = [
-    {
-      dataField: "key",
-      text: "Key",
-      headerStyle: (column, colIndex) => {
-        if (colIndex % 2 === 0) {
-          return {
-            backgroundColor: "#D1C4E9",
-          };
-        }
-        return {
-          backgroundColor: "#B39DDB",
-        };
-      },
-    },
+    // {
+    //   dataField: "key",
+    //   text: "Key",
+    //   headerStyle: (column, colIndex) => {
+    //     if (colIndex % 2 === 0) {
+    //       return {
+    //         backgroundColor: "#D1C4E9",
+    //       };
+    //     }
+    //     return {
+    //       backgroundColor: "#B39DDB",
+    //     };
+    //   },
+    // },
     {
       dataField: "data.animal",
       text: "Animal Name",
@@ -113,15 +116,41 @@ function Animal() {
       },
     },
   ];
+  // function rankFormatterLink(cell, row, rowIndex, formatExtraData) {
+  //   return (
+  //     <div className="text-primary ">
+  //       <a href={row.data.link}>
+  //         {" "}
+  //         <h3>
+  //           <i class="fas fa-paw"></i>
+  //         </h3>
+  //       </a>
+  //     </div>
+  //   );
+  // }
+  const madalCOntent = (value) => {
+    setModalShow(true);
+    setimg(value);
+  };
   function rankFormatterLink(cell, row, rowIndex, formatExtraData) {
     return (
       <div className="text-primary ">
-        <a href={row.data.link}> {row.data.link}</a>
+        <div onClick={() => madalCOntent(row.data.link)}>
+          <h3>
+            <i class="fas fa-paw"></i>
+          </h3>
+        </div>
+        <hr></hr>
       </div>
     );
   }
   return (
     <div>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        imgTag={img}
+      />
       <div className="p-4 tableScroll">
         <BootstrapTable
           striped
