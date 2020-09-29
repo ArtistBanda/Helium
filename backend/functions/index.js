@@ -12,7 +12,7 @@ admin.initializeApp({
 const app = express();
 app.use(cors({ origin: true }));
 app.use(fileMiddleware);
-//connection check....
+//connectoin check....
 app.get("/", (req, res) => {
   return res.status(200).send("working!!!");
 });
@@ -100,71 +100,5 @@ app.post("/addpth/:regnum", (req, res) => {
       res.status(500).send(e);
     });
 });
-//addspeed (Realtime)
-app.post("/api/speed", (req, res) => {
-  var overspeed = false;
-  {
-    req.body.speed > 100 ? (overspeed = true) : (overspeed = false);
-  }
-  const data = {
-    speed: req.body.speed,
-    path: req.body.path,
-    overspeed: overspeed,
-    deviated : req.body.deviated
-  };
-  var speedQuery = admin.database().ref("speed").child("Car Number");
-  speedQuery.push(data).then((snapshot) => {
-    res.status(200).send(speedQuery.key);
-  });
-});
-//getspeed (realtime)
-app.get("/api/speed/realtime", (req, res) => {
-  var main = [];
-  var speedQuery = admin.database().ref("speed");
-  speedQuery.on(
-    "value",
-    function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        var key = childSnapshot.key;
-        var data = [];
-        childSnapshot.forEach(function (childSnapshot2) {
-          data.push(childSnapshot2.val());
-        });
-        main.push({ id: key, data: data });
-      });
-      res.status(200).send(main);
-    },
-    function (error) {
-      console.error(error);
-    }
-  );
-});
-//deleteSpeed(realtime)
-app.delete("/api/speed", (req, res) => {
-  var speedQuery = admin.database().ref("speed").child(key);
-  speedQuery.remove().then((snapshot) => {
-    res.status(200).send("fe");
-  });
-});
-//adding animal
-app.post("/api/animal", (req, res) => {
-  const data = {
-    animal: req.body.animal,
-    location: req.body.location,
-  };
-  var animalQuery = admin.database().ref("animalTagging");
-  animalQuery.push(data).then((snapshot) => {
-    res.status(200).send({ key: snapshot.key });
-  });
-});
-//getAnimalList
-app.get("/api/animal", (req, res) => {
-  var animalList = [];
-  var animalQuery = admin.database().ref("animalTagging");
-  animalQuery.on("value", function (snapshot) {
-    snapshot.forEach(function (childSnapshot) {
-      animalList.push({ key: childSnapshot.key, data: childSnapshot.val() });
-    });
-  });
-  res.status(200).send(animalList);
-});
+
+
