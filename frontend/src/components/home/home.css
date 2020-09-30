@@ -1,34 +1,42 @@
 @media (max-width: 960px) {
-  .card-row .rest-card {
-    max-width: 50%;
-    padding: 0;
-  }
-  .card-row .rest-card .card {
-    max-width: 95%;
-    border: 0;
-  }
-  .card-row .rest-card .card .card-body {
-    padding: 0.5rem;
-    font-size: 0.8rem;
-  }
+    .card-row .rest-card {
+        max-width: 50%;
+        padding: 0;
+    }
+    .card-row .rest-card .card {
+        max-width: 95%;
+        border: 0;
+    }
+    .card-row .rest-card .card .card-body {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
 }
+
+
 /*# sourceMappingURL=style.css.map */
+
+.card {
+    border-radius: 11px;
+}
+
 .cardImg {
-  width: 100%;
-  height: 10rem;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-top-left-radius: 11px;
-  border-top-right-radius: 11px;
+    width: 100%;
+    height: 10rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
 }
+
 .cardStyleRestaurant {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  min-height: 300px;
-  max-height: fit-content;
-  border: 4px solid #fbc02d;
-  /* display: -webkit-box;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    min-height: 300px;
+    max-height: fit-content;
+    border: 4px solid #fbc02d;
+    /* display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
@@ -41,18 +49,19 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; */
-  margin-bottom: 20px;
-  border-radius: 1rem;
+    margin-bottom: 20px;
+    border-radius: 1rem;
 }
+
 .cardStyleRestaurantClosed {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  min-height: 300px;
-  max-height: fit-content;
-  border: 3px solid red;
-  color: rgba(0, 0, 0, 0.5);
-  /* display: -webkit-box;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    min-height: 300px;
+    max-height: fit-content;
+    border: 3px solid red;
+    color: rgba(0, 0, 0, 0.5);
+    /* display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
@@ -65,52 +74,57 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; */
-  margin-bottom: 20px;
-  border-radius: 1rem;
+    margin-bottom: 20px;
+    border-radius: 1rem;
 }
+
+
 /* .exploreButton {
     position: absolute;
     left: 0;
     bottom: 0;
   } */
+
 .restCard {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  min-height: 300px;
-  max-height: 300px;
-  max-height: fit-content;
-  border: 4px solid #fbc02d;
-  margin-bottom: 20px;
-  border-radius: 1rem;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    min-height: 300px;
+    max-height: 300px;
+    max-height: fit-content;
+    border: 4px solid #fbc02d;
+    margin-bottom: 20px;
+    border-radius: 1rem;
 }
+
 .restImg {
-  width: 100%;
-  height: 10rem;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-top-left-radius: 11px;
-  border-top-right-radius: 11px;
+    width: 100%;
+    height: 10rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
 }
+
 .github {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 54%;
-  left: 5%;
-  color: #0077b5;
-  background-color: #ffffff;
-  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 100%;
-  z-index: 1000;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 54%;
+    left: 5%;
+    color: #0077b5;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 100%;
+    z-index: 1000;
 }

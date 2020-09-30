@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <nav class="navbar navbar-expand-lg navbar-dark  navDesign">
-          <a class="navbar-brand" href="#">
-            ACKR
+          <a class="navbar-brand nav-link" href="/">
+            Helium
           </a>
           <button
             class="navbar-toggler"
