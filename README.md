@@ -1,6 +1,11 @@
 # Helium
 Smart movement tracking solution of people/vehicles from point A to point B
 
+# Project Links
+Demo Link : https://helium.arpitsharma.tech/
+
+Video Link : https://youtu.be/-H4bqBV8icU
+
 ## Table of Contents
 
 - [Helium](#helium)
