@@ -1,7 +1,12 @@
 .widthSize {
-  width: 350px;
+    width: 350px;
 }
+
 .tableScroll {
-  scroll-behavior: auto;
-  overflow-x: scroll;
+    scroll-behavior: auto;
+    overflow-x: scroll;
+}
+
+svg {
+    cursor: pointer;
 }
